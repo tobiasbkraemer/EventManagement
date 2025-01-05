@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "meeting-management-client-side-solution",
+    "id": "197084c4-e920-42f6-9aa3-f77873795f16",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.15.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "MeetingManagement description"
+      },
+      "longDescription": {
+        "default": "MeetingManagement description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "meeting-management Feature",
+        "description": "The feature that activates elements of the meeting-management solution.",
+        "id": "cd7077b0-5d9f-4291-9bce-5cef0d7764ee",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/meeting-management.sppkg"
+  }
+}

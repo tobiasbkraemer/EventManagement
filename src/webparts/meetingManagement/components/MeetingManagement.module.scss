@@ -1,0 +1,859 @@
+@import '~office-ui-fabric-react/dist/sass/References.scss';
+
+.row {
+  @include ms-Grid-row;
+  margin: 0px 0px;
+  padding-top: 9px;
+  padding-left: 10px;
+}
+
+.overskrift {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0px 0px 11px 0px;
+}
+
+// ______________________________ Menu _________________________________
+.dropdowns {
+  display: flex;
+  margin-bottom: 10px;
+  gap: 1em;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.textInherit {
+  color: inherit !important;
+}
+
+
+.addMeetingButton {
+  margin-bottom: 10px;
+  margin-left: -8px;
+}
+
+.seeAll {
+  font-family: var(--fontFamilyBase);
+  font-size: var(--fontSizeBase300);
+  font-weight: var(--fontWeightSemibold);
+  line-height: var(--lineHeightBase300);
+  margin-right: -9px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.paginationWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -1px;
+}
+
+.paginationIconWrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0 8px;
+}
+
+.paginationIcon {
+  font-size: 15px;
+  color: var(--semanticPrimaryButtonBackground, #434343);
+}
+
+
+// ---- Paginaton dot --------
+.paginationCircles {
+  column-gap: 1em;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+
+.innerPaginationIcon {
+  position: absolute;
+  top: 1.5px;
+  left: 2px;
+  font-size: 12px;
+}
+
+.innerPaginationIcon.mediumLayout {
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+// _____________________________ Cell css ____________________________________
+
+
+
+
+// ---------------- Small layout --------------
+
+
+
+.cellContainer.smallLayout {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.smallLayout .cellBox {
+  display: flex;
+  margin-bottom: 18px;
+  border-radius: 2px;
+  cursor: pointer;
+  border-radius: 1px;
+}
+
+.smallLayout .cellBackground {
+  width: 100%;
+  border-radius: 1px;
+}
+
+.smallLayout .cell {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  width: 60px;
+  height: 60px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.133) 0px 1.6px 3.6px 0px, rgba(0, 0, 0, 0.11) 0px 0.3px 0.9px 0px;
+  border: 1px solid rgb(237, 235, 233) !important; */
+
+
+  display: flex;
+  margin-right: 10px;
+  min-height: 60px;
+  min-width: 60px;
+  max-height: 60px;
+  max-width: 60px;
+  box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, .133), 0 .3px .9px 0 rgba(0, 0, 0, .11);
+  //border: 1px solid #edebe9 !important;
+  border-radius: 1px;
+}
+
+
+
+.smallLayout .cellDate {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14px 0px 0px 4px;
+  background-color: #ffffff;
+  border-radius: 1px;
+}
+
+.smallLayout .cellDate:hover {
+  box-shadow: rgba(0, 0, 0, 0.133) 0px 6.4px 14.4px 0px, rgba(0, 0, 0, 0.11) 0px 1.2px 3.6px 0px
+}
+
+.smallLayout .month {
+  font-size: 12px;
+  font-weight: 600;
+  color: #101010;
+}
+
+.smallLayout .day {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: -2px;
+  color: #101010;
+}
+
+.smallLayout .cellContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 6px;
+}
+
+.smallLayout .cellTitle {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.smallLayout .cellSubTitle {
+  font-size: 12px;
+  margin-block: 1px;
+}
+
+
+.smallLayout .cellRegistrationButton {
+  cursor: pointer;
+  background: transparent;
+  border: transparent;
+  font-size: 12px;
+  color: inherit;
+  font-weight: 500;
+}
+
+.smallLayout .cellRegistrationButton:hover {
+  color: #858585;
+}
+
+.smallLayout .buttonSektion {
+  margin-left: -5px;
+}
+
+// ------------ ---- Medium layout --------------
+
+
+/* .cell .mediumLayout {
+
+}
+ */
+
+.cellContainer.mediumLayout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.mediumLayoutAdjustment {
+  flex-wrap: wrap;
+  justify-content: flex-start !important;
+  position: relative;
+
+  .cellBoxPadding {
+    padding-inline-end: 27.5px;
+  }
+}
+
+.mediumLayout .cellBox {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 20px);
+  max-width: 230px;
+  min-width: 230px;
+  box-sizing: border-box;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.133) 0px 1.6px 3.6px, rgba(0, 0, 0, 0.11) 0px 0.3px 0.9px;
+  transition: box-shadow 0.5s;
+  background-color: #fff;
+  //border: 1px solid #ede9e9;
+  cursor: default;
+}
+
+.mediumLayout .cellBackground {
+  height: 50%;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.mediumLayout .cellBox:hover {
+  box-shadow: rgba(0, 0, 0, 0.133) 0px 6.4px 14.4px, rgba(0, 0, 0, 0.11) 0px 1.2px 3.6px;
+}
+
+.mediumLayout .cellDate {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 136px;
+  position: relative;
+  padding: 10px;
+  padding-bottom: 6px;
+  color: #101010;
+  justify-content: flex-end;
+}
+
+
+
+.mediumLayout .month {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: -6px;
+}
+
+.mediumLayout .day {
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.mediumLayout .cellContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  border-top: 1px solid #ede9e9;
+}
+
+.mediumLayout .cellTitle {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 3px;
+  color: #101010;
+  min-height: 35px;
+  max-height: 35px;
+}
+
+.mediumLayout .cellSubTitle {
+  font-size: 12px;
+  color: #666666;
+  margin-bottom: 1px;
+}
+
+.mediumLayout .cellRegistrationButton {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #101010;
+  margin: 8px -6px;
+}
+
+.mediumLayout .cellRegistrationButton:hover {
+  color: #858585;
+}
+
+@media (max-width: 1200px) {
+  .mediumLayout .cellBox {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .mediumLayout .cellBox {
+    width: 100%;
+  }
+}
+
+.mediumLayout .room {
+  display: flex;
+  font-weight: 500;
+  font-size: 11px;
+  padding: 10px 0 1px 0;
+  color: #000000d1;
+}
+
+.mediumLayout .category {
+  display: flex;
+  font-size: 11px;
+  height: 20px;
+  font-weight: 500;
+  color: #6b6b6b;
+}
+
+.mediumLayout .buttonSektion {
+  display: flex;
+  border-top: 1px solid #ede9e9;
+  padding-inline: 10px;
+  padding-block: 5px;
+  height: 36px;
+}
+
+
+// ---------------- Large layout --------------
+
+
+
+/* Large Layout Container */
+.cellContainer.largeLayout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.largeLayoutAdjustment {
+  flex-wrap: wrap;
+  justify-content: flex-start !important;
+  position: relative;
+  padding-inline-end: 48px;
+
+  .cellBoxPadding {
+    padding-inline-end: 45px;
+  }
+}
+
+
+
+
+.largeLayout .cellBackground {
+  height: 50%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  //justify-content: space-between;
+  //flex-direction: row-reverse;
+  flex-direction: column;
+  padding-block: 3px;
+}
+
+/* Individual Cards */
+.largeLayout .cellBox {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 20px);
+  max-width: 255.5px;
+  min-width: 255.5px;
+  box-sizing: border-box;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.133) 0px 1.6px 3.6px, rgba(0, 0, 0, 0.11) 0px 0.3px 0.9px;
+  transition: box-shadow 0.5s;
+  background-color: #fff;
+  //border: 1px solid #ede9e9;
+  cursor: default;
+  padding: 10px;
+}
+
+.largeLayout .cellBox:hover {
+  box-shadow: rgba(0, 0, 0, 0.133) 0px 6.4px 14.4px, rgba(0, 0, 0, 0.11) 0px 1.2px 3.6px;
+}
+
+
+.largeLayout .cellDate {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  position: relative;
+  padding: 10px;
+  padding-bottom: 6px;
+  color: #101010;
+  -ms-flex-pack: end;
+  flex-direction: row;
+}
+
+
+.largeLayout .month {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: -6px;
+}
+
+.largeLayout .day {
+  //font-size: 35px;
+  font-weight: 600;
+}
+
+/* Content Styling */
+.largeLayout .cellContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  //border-top: 1px solid #ede9e9;
+  margin-bottom: 3px;
+
+}
+
+/* Title and Subtitle Styling */
+.largeLayout .cellTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: #101010;
+  padding: 10px;
+
+}
+
+.largeLayout .cellHeadline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.largeLayout .cellSubTitle {
+  font-size: 12px;
+  color: #666;
+  padding-bottom: 10px;
+  padding-inline-start: 10px;
+  margin-top: -10px;
+}
+
+.largeLayout .cellAgenda {
+  font-size: 12px;
+  color: #333;
+  padding: 6px;
+  border: 1px solid #ede9e9;
+  border-radius: 6px;
+}
+
+.largeLayout .cellAgendaTitle {
+  font-size: 13px;
+  color: #0e0e0e;
+  padding-block-end: 5px;
+  font-weight: 700;
+}
+
+.largeLayout .responsibleUserTitle {
+  font-size: 13px;
+  color: #0e0e0e;
+  padding-block-end: 5px;
+  font-weight: 700;
+}
+
+/* Button Styling */
+.largeLayout .cellRegistrationButton {
+  /* cursor: pointer;
+  background: none;
+  border: none;
+  color: #101010;
+  margin: 8px -6px;
+ */
+  cursor: pointer;
+  border: none;
+  height: 28px;
+  max-width: 30px;
+}
+
+.largeLayout .cellRegistrationButton:hover {
+  color: #858585;
+}
+
+@media (max-width: 1200px) {
+  .largeLayout .cellBox {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .largeLayout .cellBox {
+    width: 100%;
+  }
+}
+
+.largeLayout .room {
+  display: flex;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 10px;
+  color: #101010;
+}
+
+.largeLayout .category {
+  display: flex;
+  font-size: 11px;
+  font-weight: 500;
+  height: 20px;
+  color: #6a6a6a;
+  margin-bottom: -6px;
+}
+
+.largeLayout .buttonSektion {
+  display: flex;
+  padding-inline: 10px;
+  padding-block: 5px;
+  height: 36px;
+  flex-direction: row-reverse;
+  padding-top: 15px;
+}
+
+.largeLayout .responsibleUser {
+  font-size: 14px;
+  margin-block: 2px;
+  color: #000;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.largeLayout .line {
+  border-bottom: 1px solid #ede9e9;
+  margin-inline: 10px;
+}
+
+.largeLayout .profilePicture {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+
+
+
+
+// ______________________________________________ Dialog css ________________________________________________
+.dialogContainer {
+  width: 80vw;
+  max-width: 1200px;
+  min-height: 30vh;
+}
+
+.dialogDescription {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dddddd85;
+}
+
+.dialogRegistrationDeadline {
+  border: 1px solid rgba(0, 0, 0, .68);
+  width: fit-content;
+  padding: 5px;
+  border-radius: 2px;
+  color: var(--semanticPrimaryButtonBackground, #101010) !important;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialogDeadlineSektion {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dddddd85;
+  border-top: 1px solid hsla(0, 0%, 86.7%, .5215686274509804);
+  padding-top: 15px;
+}
+
+.dialogBody {
+  padding: 10px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dddddd85;
+}
+
+.dialogDetails {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.dialogDetails h3 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.dialogDetails p {
+  margin-top: 10px;
+  margin: 10px 0;
+}
+
+.dialogTitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dialogDetailItem {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.dialogDetailItem h3 {
+  margin-bottom: 2px;
+  margin-right: 10px;
+
+}
+
+.dialogDetailItem p {
+  margin-top: 0;
+  /* Remove margin if there's any */
+}
+
+.dialogBox {
+  padding: 1.2%;
+}
+
+.dialogHeader {
+  padding: 1.2%;
+}
+
+
+.showRegistrations {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid hsla(0, 0%, 86.7%, .5215686274509804);
+  padding-top: 15px;
+  margin: 22px 15px 0 15px;
+  max-height: 193px;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  max-width: 100%;
+  align-items: flex-start;
+  justify-content: space-around;
+  align-content: flex-start;
+  ;
+}
+
+
+.registration {
+  display: flex;
+  max-width: 224px;
+  padding: 2px;
+  min-width: 25%;
+  //padding-inline-end: 43.2px;
+}
+
+/* .paginationControls {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-inline: 10px;
+} */
+
+.paginationControls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.scrollableContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+
+  border-top: 1px solid hsla(0, 0%, 86.7%, .5215686274509804);
+  padding-block: 10px;
+  margin-top: 16px;
+}
+
+
+
+.dialogButtons {
+  display: flex;
+}
+
+.dialogFooterButton {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.dialogBackground {
+  color: transparent;
+}
+
+// ---------------------------- Shimmer css ---------------------------
+.shimmerContainer {
+  display: flex;
+  align-items: center;
+  padding: 0px 7px;
+  margin-bottom: 9px;
+}
+
+.shimmerDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.shimmerLines {
+  margin: 5px -10px;
+}
+
+.shimmerHeader {
+  padding: 39px 0px 34px 0px;
+}
+
+.shimmerFilter {
+  padding: 0px 0px 30px 0px;
+}
+
+.shimmerButton {
+  margin-bottom: 10px;
+  padding: 0px 0px 5px 0px;
+}
+
+.shimmerText {
+  padding: 27px 0px 11px 0px;
+}
+
+
+// ____________________________ Arrow ______________________________________
+
+.arrows {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  color: #ffffff;
+  display: none;
+  z-index: 10;
+  top: calc(53% - 18px);
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, .6);
+  border: #000000;
+}
+
+.arrowLeft {
+  left: 0px;
+}
+
+.arrowRight {
+  right: 0px;
+}
+
+.arrowLeft::before,
+.arrowLeft::after,
+.arrowRight::before,
+.arrowRight::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 2px;
+  background-color: #fff;
+  /* Arrow color */
+}
+
+.arrowLeft::before {
+  transform: rotate(45deg);
+  top: 23px;
+  left: 10px;
+}
+
+.arrowLeft::after {
+  transform: rotate(-45deg);
+  top: 13px;
+  left: 10px;
+}
+
+.arrowRight::before {
+  transform: rotate(-45deg);
+  top: 22px;
+  left: 11px;
+}
+
+.arrowRight::after {
+  transform: rotate(45deg);
+  top: 12px;
+  left: 11px;
+}
+
+/* Display arrows on hover */
+.cellContainer:hover .arrowLeft,
+.cellContainer:hover .arrowRight {
+  display: inline-block;
+}

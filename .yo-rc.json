@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.15.2",
+    "libraryName": "meeting-management",
+    "libraryId": "197084c4-e920-42f6-9aa3-f77873795f16",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "MeetingManagement",
+    "solutionShortDescription": "MeetingManagement description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

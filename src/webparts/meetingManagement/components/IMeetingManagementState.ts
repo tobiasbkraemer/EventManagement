@@ -1,0 +1,44 @@
+import { IMeeting } from './IMeeting';
+
+export interface IMeetingManagementState {
+    meetings: IMeeting[];
+    showMeetingData: boolean;
+    showMeetings: boolean;
+    selectedMeetingId: number;
+    isDialogVisible: boolean;
+    selectedMeeting: IMeeting | null;
+    selectedTypeFilter: string;
+    selectedCategoryFilter: string;
+    selectedRoomFilter: string;
+    registeredMeetingIds: number[];
+    registrationsCount: number;
+    isUserRegistered: boolean;
+    registeredUserNames: string[];
+    isCalloutVisible: boolean;
+    showMyRegistrations: boolean;
+    dataLoaded: boolean;
+    isEditor: boolean;
+    showRegistrations: boolean;
+    currentMeetingPage: number;
+    meetingsPerPage: number;
+    layout: string;
+    meetingsCount: number;
+    showPagination: boolean;
+    registeredUsers: { userName: string, pictureUrl: string }[];
+    registrationCounts: { [meetingId: number]: number };
+    userId: number;
+    userName: string;
+    userEmail: string;
+    confirmationDialogVisible: boolean;
+    confirmationDialogMessage: string;
+    confirmationDialogButtonText: string;
+    confirmationDialogTitle: string;
+    confirmationDialogAction: (() => void) | null;
+    requiresApproval: boolean;
+    approvalMessage: string;
+    successDialogVisible: boolean;
+    successDialogMessage: string;
+    successDialogButtonText: string;
+    successDialogTitle: string;
+    allRegistrations: any[];
+}
