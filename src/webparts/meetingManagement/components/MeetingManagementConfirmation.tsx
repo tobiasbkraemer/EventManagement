@@ -26,7 +26,6 @@ const MeetingManagementConfirmation: React.FC<IMeetingManagementConfirmationProp
 }) => {
     const [isApproved, setIsApproved] = React.useState(!requiresApproval);
 
-    // Reset isApproved state based on requiresApproval whenever dialog visibility changes
     React.useEffect(() => {
         setIsApproved(!requiresApproval);
     }, [isVisible, requiresApproval]);
@@ -71,7 +70,7 @@ const MeetingManagementConfirmation: React.FC<IMeetingManagementConfirmationProp
                 <PrimaryButton
                     text={strings.Confirm}
                     onClick={onConfirm}
-                    disabled={requiresApproval && !isApproved} // This disables the button by default if approval is needed
+                    disabled={requiresApproval && !isApproved} 
                 />
                 <DefaultButton
                     text={strings.Cancel}

@@ -44,8 +44,6 @@ export default class MeetingManagement extends React.Component<IMeetingManagemen
       isUserRegistered: false,
       registeredUserNames: [],
       isCalloutVisible: false,
-      //isUserOnWaitingList: false,
-      //waitingListMeetingIds: [],
       showMyRegistrations: false,
       dataLoaded: false,
       isEditor: false,

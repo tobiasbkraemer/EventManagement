@@ -69,7 +69,7 @@ const MeetingManagementDropdowns: React.FC<IMeetingManagementDropdownsProps> = (
                     selectedKey={selectedCategoryFilter}
                     styles={{
                         label: { color: 'inherit' },
-                        title: {  minWidth: '150px' } // Applying your custom styles for maxWidth and minWidth
+                        title: {  minWidth: '150px' } 
                     }}
                     onChange={(ev, selectedItem) => onCategoryFilterChange(selectedItem?.key as string)}
                 />
@@ -84,7 +84,7 @@ const MeetingManagementDropdowns: React.FC<IMeetingManagementDropdownsProps> = (
                     selectedKey={selectedLocationFilter}
                     styles={{
                         label: { color: 'inherit' },
-                        title: {  minWidth: '150px' } // Applying your custom styles for maxWidth and minWidth
+                        title: {  minWidth: '150px' } 
                     }}
                     onChange={(ev, selectedItem) => onLocationFilterChange(selectedItem?.key as string)}
                 />

@@ -12,13 +12,10 @@ interface IMeetingManagementCellProps {
     layout: string;
     registrationCounts: { [meetingId: number]: number };
     registeredMeetingIds: number[];
-    //waitingListMeetingIds: number[];
     currentDate: Date;
     showMeetingDetails: (meetingId: number) => void;
     registerForMeeting: (meeting: IMeeting) => void;
     unregisterFromMeeting: (meetingId: number) => void;
-    //registerForWaitingList: (meeting: IMeeting) => void;
-    //unregisterFromWaitingList: (meetingId: number) => void;
     justifyClass: string;
     registerOptions: string;
     responsibleUser: { userName: string; userEmail: string };
@@ -30,13 +27,10 @@ const MeetingManagementCell: React.FC<IMeetingManagementCellProps> = ({
     layout,
     registrationCounts,
     registeredMeetingIds: registeredMeetingIds,
-    //waitingListMeetingIds: waitingListMeetingIds,
     currentDate,
     showMeetingDetails: showMeetingDetails,
     registerForMeeting: registerForMeeting,
     unregisterFromMeeting: unregisterFromMeeting,
-    //registerForWaitingList,
-    //unregisterFromWaitingList,
     justifyClass,
     registerOptions,
     responsibleUser,
@@ -182,7 +176,7 @@ const MeetingManagementCell: React.FC<IMeetingManagementCellProps> = ({
 
                     {(registerOptions === 'showInView' || registerOptions === 'showBoth') && (
                         <div className={styles.buttonSektion}>
-                            {!isRegistered && !isEventFull /* && !isUserOnWaitingList */ && !isRegistrationClosed && (
+                            {!isRegistered && !isEventFull && !isRegistrationClosed && (
                                 <PrimaryButton
                                     //className={`${styles.cellRegistrationButton} ${styles[layout]}`}
                                     onClick={(e) => { e.stopPropagation(); registerForMeeting(meeting); }}
@@ -191,7 +185,7 @@ const MeetingManagementCell: React.FC<IMeetingManagementCellProps> = ({
                                     {"Deltag"}
                                 </PrimaryButton>
                             )}
-                            {isRegistered /* && !isUserOnWaitingList */ && (
+                            {isRegistered && (
                                 <DefaultButton
                                     //className={`${styles.cellRegistrationButton} ${styles[layout]}`}
                                     onClick={(e) => { e.stopPropagation(); unregisterFromMeeting(meeting.Id); }}
@@ -235,7 +229,7 @@ const MeetingManagementCell: React.FC<IMeetingManagementCellProps> = ({
                         <div className={styles.buttonSektion}>
                             {(registerOptions === 'showInView' || registerOptions === 'showBoth') && (
                                 <div>
-                                    {!isRegistered && !isEventFull /* && !isUserOnWaitingList */ && !isRegistrationClosed && (
+                                    {!isRegistered && !isEventFull && !isRegistrationClosed && (
                                         <button
                                             className={`${styles.cellRegistrationButton} ${styles[layout]}`}
                                             onClick={(e) => { e.stopPropagation(); registerForMeeting(meeting); }}
@@ -244,7 +238,7 @@ const MeetingManagementCell: React.FC<IMeetingManagementCellProps> = ({
                                             {strings.Register}
                                         </button>
                                     )}
-                                    {isRegistered /* && !isUserOnWaitingList */ && (
+                                    {isRegistered && (
                                         <button
                                             className={`${styles.cellRegistrationButton} ${styles[layout]}`}
                                             onClick={(e) => { e.stopPropagation(); unregisterFromMeeting(meeting.Id); }}

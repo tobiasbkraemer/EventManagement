@@ -18,10 +18,7 @@ import "@pnp/sp/fields";
 import "@pnp/sp/content-types/list";
 import "@pnp/sp/lists/web";
 import "@pnp/sp/sites";
-import locEn from "./loc/en-us";
-import locDk from "./loc/da-dk";
 import * as strings from 'MeetingManagementWebPartStrings';
-//import * as packageSolution from '../../config/package-solution.json'; 
 
 
 
@@ -162,7 +159,6 @@ export default class MeetingManagementWebPart extends BaseClientSideWebPart<IMee
     let settingsGroups: IPropertyPaneGroup[] = [];
 
     try {
-      // Ensure the arrays are initialized if not already
       this.properties.meetingTypes = this.properties.meetingTypes || [];
       this.properties.categories = this.properties.categories || [];
       this.properties.rooms = this.properties.rooms || [];
@@ -269,11 +265,6 @@ export default class MeetingManagementWebPart extends BaseClientSideWebPart<IMee
           offAriaLabel: strings.ToggleOff,
 
         }),
-        /* PropertyPaneToggle("togglePagination", {
-          label: this.enforcedStrings.ShowPagiationLabel,
-          onText: this.enforcedStrings.ToggleOn,
-          offText: this.enforcedStrings.ToggleOff,
-        }), */
         PropertyPaneSlider('numberOfMeetings', {
           label: strings.NumberOfMeetings,
           min: 1,
@@ -285,20 +276,6 @@ export default class MeetingManagementWebPart extends BaseClientSideWebPart<IMee
       ];
 
       settingsGroups.push(
-        /* {
-          groupName: "",
-          groupFields: [
-            new PropertyPaneCustomField('customField', {
-              label: "Version: " + (<any>packageSolution).solution.version,
-              buttonText: '? ' + this.enforcedStrings.Help,
-              url: 'https://userguide.365connect.dk/editors/anniversaries/',
-              onRender: null,
-              key: "12345"
-            }),
-          ],
-          isCollapsed: false,
-          isGroupNameHidden: true
-        }, */
         {
           groupName: strings.ContentSettingsGroupName,
           groupFields: contentSettingsGroupName,

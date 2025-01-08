@@ -6,7 +6,7 @@ import * as strings from 'MeetingManagementWebPartStrings'
 
 interface IMeetingManagementDetailsProps {
     isDialogVisible: boolean;
-    selectedMeeting: any; // Define a more specific type if available
+    selectedMeeting: any; 
     showRegistrations: boolean;
     currentDate: Date;
     registrationsCount: number;
@@ -193,14 +193,13 @@ const MeetingManagementDetails: React.FC<IMeetingManagementDetailsProps> = ({
                         <div>
                             {!isUserRegistered
                                 && registrationsCount < selectedMeeting.MaxRegistrations
-                                && /* !isUserOnWaitingList
-                                && */ (selectedMeeting.RegistrationDeadline === null || new Date(selectedMeeting.RegistrationDeadline) > currentDate)
+                                && (selectedMeeting.RegistrationDeadline === null || new Date(selectedMeeting.RegistrationDeadline) > currentDate)
                                 && (
                                     <PrimaryButton text={"Deltag"} onClick={onRegister} />
                                 )
                             }
 
-                            {isUserRegistered /* && !isUserOnWaitingList */ && (
+                            {isUserRegistered && (
                                 <DefaultButton text={"Deltag ikke"} onClick={onUnregister} />
                             )}
 
