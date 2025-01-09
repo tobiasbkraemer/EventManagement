@@ -575,45 +575,59 @@ export default class MeetingManagement extends React.Component<IMeetingManagemen
 
 
   private generateICalContent(meeting: IMeeting, isCancelled: boolean = false, attendees: string[] = []): string {
-    const startTime = new Date(meeting.StartTime).toISOString().replace(/-|:|\.\d\d\d/g, '');
-    const endTime = new Date(meeting.EndTime).toISOString().replace(/-|:|\.\d\d\d/g, '');
-    const room = meeting.Room.replace(/,/g, '\\,').replace(/\n/g, '\\n');
-    const description = meeting.Description.replace(/,/g, '\\,').replace(/\n/g, '\\n');
-
-    const attendeeList = attendees.map(email => `ATTENDEE;RSVP=TRUE:mailto:${email}`).join('\n');
-    const status = isCancelled ? "CANCELLED" : "CONFIRMED";
-
-    return `
-BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Your Company//Meeting Management//EN
-BEGIN:VEVENT
-UID:${meeting.Id}@yourdomain.com
-DTSTAMP:${new Date().toISOString().replace(/-|:|\.\d\d\d/g, '')}
-DTSTART:${startTime}
-DTEND:${endTime}
-SUMMARY:${meeting.Title}
-ROOM:${room}
-DESCRIPTION:${description}
-STATUS:${status}
-${attendeeList}
-END:VEVENT
-END:VCALENDAR
-`.trim();
+    const formatDate = (date: Date) => date.toISOString().replace(/-|:|\.\d{3}/g, '');
+  
+    // Ensure meeting data is valid, and provide fallbacks if needed
+    const startTime = meeting.StartTime ? formatDate(new Date(meeting.StartTime)) : '';
+    const endTime = meeting.EndTime ? formatDate(new Date(meeting.EndTime)) : '';
+    const title = meeting.Title || 'No Subject';
+    const room = meeting.Room ? meeting.Room.replace(/,/g, '\\,').replace(/\n/g, '\\n') : 'No Location';
+    const description = meeting.Description ? meeting.Description.replace(/,/g, '\\,').replace(/\n/g, '\\n') : 'No Description';
+    const status = isCancelled ? 'CANCELLED' : 'CONFIRMED';
+  
+    // Optional attendee list
+    const attendeeList = attendees.length > 0
+      ? attendees.map(email => `ATTENDEE;RSVP=TRUE:mailto:${email}`).join('\r\n')
+      : '';
+  
+    return [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Your Company//Meeting Management//EN',
+      'BEGIN:VEVENT',
+      `UID:${meeting.Id || 'no-id'}@yourdomain.com`,
+      `DTSTAMP:${formatDate(new Date())}`,
+      startTime ? `DTSTART:${startTime}` : '', 
+      endTime ? `DTEND:${endTime}` : '', 
+      `SUMMARY:${title}`,
+      `LOCATION:${room}`,
+      `DESCRIPTION:${description}`,
+      `STATUS:${status}`,
+      attendeeList,
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ]
+      .filter(line => line) 
+      .join('\r\n');
   }
-
-  private downloadICalFile = (meeting: IMeeting, isCancelled: boolean = false, attendees: string[] = []) => {
+  
+  private downloadICalFile = (meeting: IMeeting, isCancelled: boolean = false, attendees: string[] = []): void => {
     const icalContent = this.generateICalContent(meeting, isCancelled, attendees);
-    const blob = new Blob([icalContent], { type: 'text/calendar' });
+    const blob = new Blob([icalContent], { type: 'text/calendar;charset=utf-8' });
     const url = window.URL.createObjectURL(blob);
-
+  
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${meeting.Title}.ics`;
+  
+    // Fallback for title in case it's empty
+    const fileName = meeting.Title ? meeting.Title.replace(/[^a-z0-9]/gi, '_') : 'meeting';
+    a.download = `${fileName}.ics`;
+  
     a.click();
-
     window.URL.revokeObjectURL(url);
   };
+  
+  
 
 
 
