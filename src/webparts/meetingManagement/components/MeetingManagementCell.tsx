@@ -23,14 +23,14 @@ interface IMeetingManagementCellProps {
 }
 
 const MeetingManagementCell: React.FC<IMeetingManagementCellProps> = ({
-    meeting: meeting,
+    meeting,
     layout,
     registrationCounts,
-    registeredMeetingIds: registeredMeetingIds,
+    registeredMeetingIds,
     currentDate,
-    showMeetingDetails: showMeetingDetails,
-    registerForMeeting: registerForMeeting,
-    unregisterFromMeeting: unregisterFromMeeting,
+    showMeetingDetails,
+    registerForMeeting,
+    unregisterFromMeeting,
     justifyClass,
     registerOptions,
     responsibleUser,

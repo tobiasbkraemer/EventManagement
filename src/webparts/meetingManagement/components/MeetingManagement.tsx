@@ -21,7 +21,7 @@ import * as strings from 'MeetingManagementWebPartStrings'
 
 export default class MeetingManagement extends React.Component<IMeetingManagementProps, IMeetingManagementState> {
 
-  
+
   private registrationList: any;
 
   private currentTime: Date = new Date();
@@ -93,9 +93,9 @@ export default class MeetingManagement extends React.Component<IMeetingManagemen
     filteredMeetings = filteredMeetings.slice(0, totalMeetingsToShow);
 
     // Pagination logic: adjust the slicing based on current page and meetings per page
-    const startIndex = (this.state.currentMeetingPage - 1) * this.state.meetingsPerPage;
+    /* const startIndex = (this.state.currentMeetingPage - 1) * this.state.meetingsPerPage;
     const endIndex = Math.min(startIndex + this.state.meetingsPerPage, filteredMeetings.length);
-
+ */
     // Get the paginated meetings
     const paginatedMeetings = this.getPaginatedMeetings(filteredMeetings);
 
@@ -150,7 +150,7 @@ export default class MeetingManagement extends React.Component<IMeetingManagemen
                 styles={{
                   root: { color: 'inherit' },
                 }}
-                onClick={ev => window.open("", "_blank")}
+                onClick={ev => window.open("https://pnmmhdev.sharepoint.com/sites/Tobias/_layouts/15/listform.aspx?PageType=8&ListId=%7B889DCCCC-8E8A-43E4-A076-6D72D1FB66DD%7D&RootFolder=&Source=https%3A%2F%2Fpnmmhdev.sharepoint.com%2Fsites%2FTobias%2FLists%2FMeetings%2FAllItems.aspx%3Fviewid%3D85302bd0%252D8bb9%252D4f68%252D9f48%252D005e11fdacbd%26npsAction%3DcreateList&ContentTypeId=0x0100F7E6163A74021E4299660258EAFF215600159C9AB3B42A3A49A1BDA6B677DE1D7F", "_blank")}
               />
             </div>
           )}
@@ -199,8 +199,8 @@ export default class MeetingManagement extends React.Component<IMeetingManagemen
               responsibleUser={{
                 userName: this.state.userName,
                 userEmail: this.state.userEmail
-              }} 
-              getUserProfilePicture={this.getUserProfilePicture} 
+              }}
+              getUserProfilePicture={this.getUserProfilePicture}
             />
           ))}
 
@@ -311,7 +311,7 @@ export default class MeetingManagement extends React.Component<IMeetingManagemen
       // First, fetch the current user data
       await this.getCurrentUser();
 
-      const [ registeredMeetingIds, meetings, allRegistrations] = await Promise.all([
+      const [registeredMeetingIds, meetings, allRegistrations] = await Promise.all([
         this.getUserRegistrations(),
         this.getMeetings(),
         this.getAllRegistrations(), // Fetch all registrations here
@@ -509,7 +509,8 @@ export default class MeetingManagement extends React.Component<IMeetingManagemen
     const totalMeetingsToShow = Math.min(filteredMeetings.length, this.props.numberOfMeetings || 4);
     const meetingsToDisplay = filteredMeetings.slice(0, totalMeetingsToShow);
 
-    const startIndex = (this.state.currentMeetingPage - 1) * this.state.currentMeetingPage;
+    // Fejl: Beregningen af startIndex bruger `currentMeetingPage` i stedet for `meetingsPerPage`
+    const startIndex = (this.state.currentMeetingPage - 1) * this.state.meetingsPerPage;
     const endIndex = Math.min(startIndex + this.state.meetingsPerPage, meetingsToDisplay.length);
 
     return meetingsToDisplay.slice(startIndex, endIndex);
@@ -769,7 +770,7 @@ END:VCALENDAR
         message,
         buttonText,
         title,
-        meeting.Approval, 
+        meeting.Approval,
         approvalMessage,
         async () => {
           await this.closeConfirmationDialog();

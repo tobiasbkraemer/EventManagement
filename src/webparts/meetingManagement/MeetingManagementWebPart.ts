@@ -297,7 +297,7 @@ export default class MeetingManagementWebPart extends BaseClientSideWebPart<IMee
       pages: [
         {
           header: {
-            description: strings.PropertyPaneDescription,
+            description: "Her kan du tilpasse indhold og visning.",
           },
           displayGroupsAsAccordion: true,
           groups: settingsGroups,

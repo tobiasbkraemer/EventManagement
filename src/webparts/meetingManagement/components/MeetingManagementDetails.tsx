@@ -161,7 +161,7 @@ const MeetingManagementDetails: React.FC<IMeetingManagementDetailsProps> = ({
                             display: 'flex',
                             justifyContent: 'space-between',
                             width: '100%',
-                            //flexDirection: 'row-reverse'
+                            flexDirection: 'row-reverse'
                         },
                     }}>
                     <div className={styles.dialogButtons}>
